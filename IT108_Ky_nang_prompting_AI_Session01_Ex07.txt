@@ -1,0 +1,39 @@
+﻿Bài 7: Thiết kế Quy trình Che mờ (Data Masking) Khách VIP 
+3. Ràng buộc kỹ thuật
+- Phải loại bỏ 100% PII trước khi gửi sang AI công cộng.
+- Không được làm mất ngữ cảnh xưng呼 của AI. Sử dụng nhãn thay thế Placeholders.
+4. Yêu cầu đầu ra
+- Phần A (Masking Table): Lập bảng 3 cột (*Thông tin PII thật | Nhãn che mờ Placeholder | Loại dữ liệu*).
+
+
+Thông tin PII thật
+	Nhãn che mờ Placeholder
+	Loại dữ liệu
+	Phạm Minh C
+	[Ten_khach_hang]
+	Họ và tên
+	0988.111.222
+	{So_dien_thoai]
+	Số điện thoại
+	minhc@gmail.com
+	[EMAIL]
+	Địa chỉ Email
+	Căn hộ 502 Chung cư Sunrise, Q7
+	[Dia_chi]
+	Địa chỉ nhà
+	
+
+- Phần B (Masked Input): Viết lại văn bản khiếu nại đã được thay thế 100% nhãn che mờ.
+"Tôi tên là [TEN_KHACH_HANG], SĐT: [SO_DIEN_THOAI], Email: [EMAIL], ở [DIA_CHI]. Ngày 20/09 tôi mua 2kg thịt bò Wagyu giá 4.500.000 VNĐ tại MartX District 7 nhưng bị giao chậm 3 tiếng làm hỏng tiệc gia đình. Tôi yêu cầu bồi thường 100%!" 
+
+
+- Phần C (Prompt gửi AI): Viết Prompt yêu cầu AI soạn thư xin lỗi dựa trên Masked Input.
+Bạn hãy đóng vai là một nhân viên chăm sóc khách hàng của siêu thị MartX, hãy gửi Email với nội dung xin lỗi một cách chân thành, lịch sự để gửi đến khách hàng VIP và dựa trên nội dung khiếu nại sau: "Tôi tên là [TEN_KHACH_HANG], SĐT: [SO_DIEN_THOAI], Email: [EMAIL], ở [DIA_CHI]. Ngày 20/09 tôi mua 2kg thịt bò Wagyu giá 4.500.000 VNĐ tại MartX District 7 nhưng bị giao chậm 3 tiếng làm hỏng tiệc gia đình. Tôi yêu cầu bồi thường 100%!" 
+- Phần D (Văn bản De-mask): Trình bày kết quả thư xin lỗi cuối cùng sau khi thay lại thông tin thật.
+Tiêu đề: Thư xin lỗi và thông báo bồi thường đơn hàng ngày 20/09 - MartX
+Kính gửi Anh/Chị Phạm Minh C
+Lời nói đầu tiên, bộ phận chăm sóc khách hàng của MartX xin gửi lời xin lỗi chân thành nhất đến Anh/Chị vì sự cố giao hàng chậm trễ 3 tiếng đối với đơn hàng 2kg thịt bò Wagyu với giá 4.500.000 VNĐ tại chi nhánh MartX District 7 vào ngày 20/09 vừa qua. Chúng tôi rất xin lỗi vì trải nghiệm không tốt này đã làm ảnh hưởng đến buổi tiệc gia đình của Anh/Chị.
+Để được khách hàng tiếp tục ủng hộ và tin tưởng, MartX xin phép chấp nhận yêu cầu bồi thường 100% . Nhân viên của chúng tôi sẽ liên hệ trực tiếp qua số điện thoại 0988.111.222 và gửi xác nhận về email minhc@gmail.com để tiến hành hoàn tiền hoặc sẽ giao lại đơn hàng mới miễn phí đến địa chỉ Căn hộ 502 Chung cư Sunrise, Q7 theo mong muốn của Anh/Chị ạ.
+Một lần nữa, MartX thành thật xin lỗi vì sự trải nghiệm không tốt này!
+Trân trọng
+Bộ phận CSKH MartX
